@@ -58,9 +58,9 @@ exports.updateJSON = function updateJSON(id, newsubject){
     if(index == -1){
         return "File not found";
     }else{
-    fileObject.Todo[index].subject = newsubject;
-    fs.writeFileSync(file, JSON.stringify(fileObject, null, 4));
-    return "Successful";
+        fileObject.Todo[index].subject = newsubject;
+        fs.writeFileSync(file, JSON.stringify(fileObject, null, 4));
+        return "Successful";
     }
 };
 
