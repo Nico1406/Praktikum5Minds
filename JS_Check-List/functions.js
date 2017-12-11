@@ -1,7 +1,6 @@
 'use strict';
 
-const file = "list.json";
-//const fileRe = require("./list.json");
+const file = 'list.json';
 const fs = require('fs');
 const uuidv4 = require('uuid/v4');
 
