@@ -27,14 +27,14 @@ exports.readJSON = function readJSON(){
     
     let output = null;
     for(let i = 0;i<fileObject.Todo.length;i++){
-        if(output == null){
-            if(fileObject.Todo[i].check == true){
+        if(output === null){
+            if(fileObject.Todo[i].check === true){
                 output = '&#10003 Subject: ' + JSON.stringify(fileObject.Todo[i].subject + ' | Id: ' + fileObject['Todo'][i]['id']);
             }else{
                 output = '&#10007 Subject: ' + JSON.stringify(fileObject.Todo[i].subject + ' | Id: ' + fileObject['Todo'][i]['id']);
             }
         }else{
-            if(fileObject.Todo[i].check == true){
+            if(fileObject.Todo[i].check === true){
                 output = output + '<br>&#10003 Subject: ' + JSON.stringify(fileObject.Todo[i].subject + ' | Id: ' + fileObject['Todo'][i]['id']);
             }else{
                 output = output + '<br>&#10007 Subject: ' + JSON.stringify(fileObject.Todo[i].subject + ' | Id: ' + fileObject['Todo'][i]['id']);
@@ -42,7 +42,7 @@ exports.readJSON = function readJSON(){
         }
     }
     output = output.replace(/'/g,'');
-    if(output == null){
+    if(output === null){
         return 'no notes found'
     }
     return output;
@@ -54,7 +54,7 @@ exports.updateJSON = function updateJSON(id, newsubject){
     let fileObject = JSON.parse(fileRe);
 
     const index = findWithAttr(fileObject.Todo, 'id', id);
-    if(index == -1){
+    if(index === -1){
         return 'File not found';
     }else{
         fileObject.Todo[index].subject = newsubject;
@@ -68,7 +68,7 @@ exports.deleteJSON = function deleteJSON(oldid){
     const fileRe = fs.readFileSync('./list.json', 'utf8');
     let fileObject = JSON.parse(fileRe);
     const index = findWithAttr(fileObject.Todo, 'id', oldid);
-    if(index == -1){
+    if(index === -1){
         return 'File not found';
     }else{
         fileObject.Todo.splice(index, 1);
@@ -83,11 +83,11 @@ exports.searchJSON = function searchJSON(search) {
     let fileObject = JSON.parse(fileRe);
     
     let index = findWithAttr(fileObject.Todo, 'id', search);
-    if(index == -1){
+    if(index === -1){
         return 'File not found';
     }else{
         let output;
-        if(fileObject.Todo[index].check == true){
+        if(fileObject.Todo[index].check === true){
                 output = '&#10003 Subject: ' + JSON.stringify(fileObject.Todo[index].subject + ' | Id: ' + fileObject['Todo'][index]['id']);
             }else{
                 output = '&#10007 Subject: ' + JSON.stringify(fileObject.Todo[index].subject + ' | Id: ' + fileObject['Todo'][index]['id']);
@@ -102,10 +102,10 @@ exports.checkJSON = function check(toCheck){
     let fileObject = JSON.parse(fileRe);
     
     let index = findWithAttr(fileObject.Todo, 'id', toCheck);
-    if(index == -1){
+    if(index === -1){
         return 'File not found';
     }else{
-        if(fileObject.Todo[index].check == false){
+        if(fileObject.Todo[index].check === false){
             fileObject.Todo[index].check = true;
         }else{
             fileObject.Todo[index].check = false;
@@ -123,17 +123,17 @@ exports.isCheckedJSON = function isChecked(){
     
     let output = null;
     for(let i = 0;i<fileObject.Todo.length;i++){
-        if(output == null){
-            if(fileObject.Todo[i].check == true){
+        if(output === null){
+            if(fileObject.Todo[i].check === true){
                 output = '&#10003 Subject: ' + JSON.stringify(fileObject.Todo[i].subject + ' | Id: ' + fileObject['Todo'][i]['id']);
             }
         }else{
-            if(fileObject.Todo[i].check == true){
+            if(fileObject.Todo[i].check === true){
                 output = output + '<br>&#10003 Subject: ' + JSON.stringify(fileObject.Todo[i].subject + ' | Id: ' + fileObject['Todo'][i]['id']);
             }
         }
     }
-    if(output == null){
+    if(output === null){
         return 'nothing is checked'
     }
     return output;    
