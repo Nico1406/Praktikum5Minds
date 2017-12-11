@@ -1,1 +1,29 @@
-{"Todo":["Test1","Test2","Test3","Test4"]}
+{
+    "Todo": [
+        {
+            "check": false,
+            "id": "4ac923aa-96c4-4528-8389-1cceafa5b0cc",
+            "subject": "Test1"
+        },
+        {
+            "check": false,
+            "id": "583954cf-a950-47e0-8460-83b5a0291724",
+            "subject": "Test2"
+        },
+        {
+            "check": false,
+            "id": "71efbda6-d7b4-442a-8f02-2f12637669fa",
+            "subject": "Test3"
+        },
+        {
+            "check": false,
+            "id": "2d216e1b-1522-4d1a-9674-5874671b9425",
+            "subject": "Test4"
+        },
+        {
+            "check": false,
+            "id": "0ec8c75e-fff2-420e-9346-0ff7798bd88b",
+            "subject": "Test5"
+        }
+    ]
+}
