@@ -1,10 +1,10 @@
-var express = require('express');
-var app = express();
-var fs = require('fs');
-var functions = require('./functions.js');
-var bodyParser = require('body-parser');
+'use strict'
 
-var urlencodedParser = bodyParser.urlencoded({extended: false});
+const express = require('express');
+const app = express();
+const fs = require('fs');
+const functions = require('./functions.js');
+const bodyParser = require('body-parser');
 
 app.use(express.static('public'));
 
