@@ -29,15 +29,15 @@ exports.readJSON = function readJSON(){
     for(let i = 0;i<fileObject.Todo.length;i++){
         if(output == null){
             if(fileObject.Todo[i].check == true){
-                output = '&#10003 Subject: ' + JSON.stringify(fileObject['Todo'][i]['subject'] + ' | Id: ' + fileObject['Todo'][i]['id']);
+                output = '&#10003 Subject: ' + JSON.stringify(fileObject.Todo[i].subject + ' | Id: ' + fileObject['Todo'][i]['id']);
             }else{
-                output = '&#10007 Subject: ' + JSON.stringify(fileObject['Todo'][i]['subject'] + ' | Id: ' + fileObject['Todo'][i]['id']);
+                output = '&#10007 Subject: ' + JSON.stringify(fileObject.Todo[i].subject + ' | Id: ' + fileObject['Todo'][i]['id']);
             }
         }else{
             if(fileObject.Todo[i].check == true){
-                output = output + '<br>&#10003 Subject: ' + JSON.stringify(fileObject['Todo'][i]['subject'] + ' | Id: ' + fileObject['Todo'][i]['id']);
+                output = output + '<br>&#10003 Subject: ' + JSON.stringify(fileObject.Todo[i].subject + ' | Id: ' + fileObject['Todo'][i]['id']);
             }else{
-                output = output + '<br>&#10007 Subject: ' + JSON.stringify(fileObject['Todo'][i]['subject'] + ' | Id: ' + fileObject['Todo'][i]['id']);
+                output = output + '<br>&#10007 Subject: ' + JSON.stringify(fileObject.Todo[i].subject + ' | Id: ' + fileObject['Todo'][i]['id']);
             }
         }
     }
@@ -88,9 +88,9 @@ exports.searchJSON = function searchJSON(search) {
     }else{
         let output;
         if(fileObject.Todo[index].check == true){
-                output = '&#10003 Subject: ' + JSON.stringify(fileObject['Todo'][index]['subject'] + ' | Id: ' + fileObject['Todo'][index]['id']);
+                output = '&#10003 Subject: ' + JSON.stringify(fileObject.Todo[index].subject + ' | Id: ' + fileObject['Todo'][index]['id']);
             }else{
-                output = '&#10007 Subject: ' + JSON.stringify(fileObject['Todo'][index]['subject'] + ' | Id: ' + fileObject['Todo'][index]['id']);
+                output = '&#10007 Subject: ' + JSON.stringify(fileObject.Todo[index].subject + ' | Id: ' + fileObject['Todo'][index]['id']);
             }
         return output;
     }
@@ -125,11 +125,11 @@ exports.isCheckedJSON = function isChecked(){
     for(let i = 0;i<fileObject.Todo.length;i++){
         if(output == null){
             if(fileObject.Todo[i].check == true){
-                output = '&#10003 Subject: ' + JSON.stringify(fileObject['Todo'][i]['subject'] + ' | Id: ' + fileObject['Todo'][i]['id']);
+                output = '&#10003 Subject: ' + JSON.stringify(fileObject.Todo[i].subject + ' | Id: ' + fileObject['Todo'][i]['id']);
             }
         }else{
             if(fileObject.Todo[i].check == true){
-                output = output + '<br>&#10003 Subject: ' + JSON.stringify(fileObject['Todo'][i]['subject'] + ' | Id: ' + fileObject['Todo'][i]['id']);
+                output = output + '<br>&#10003 Subject: ' + JSON.stringify(fileObject.Todo[i].subject + ' | Id: ' + fileObject['Todo'][i]['id']);
             }
         }
     }
