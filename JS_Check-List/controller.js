@@ -1,10 +1,11 @@
 'use strict'
 
 const express = require('express');
-const app = express();
 const fs = require('fs');
 const functions = require('./functions.js');
 const bodyParser = require('body-parser');
+
+const app = express();
 
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
