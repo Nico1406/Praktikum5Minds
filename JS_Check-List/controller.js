@@ -1,18 +1,12 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
-var cookieParser = require('cookie-parser');
 var functions = require('./functions.js');
-var handlebars = require('handlebars');
 var bodyParser = require('body-parser');
-var multer  = require('multer');
 
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 app.use(express.static('public'));
-
-var multer = require('multer');
-var upload = multer({ dest: '/tmp/' });
 
 var file = "list.json";
 var fileRe = require("./list.json");
