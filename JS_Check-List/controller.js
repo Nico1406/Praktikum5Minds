@@ -2,10 +2,10 @@
 
 const express = require('express');
 const fs = require('fs');
-const functions = require('./functions.js');
+const app = express();
 const bodyParser = require('body-parser');
 
-const app = express();
+const functions = require('./functions.js');
 
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
