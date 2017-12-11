@@ -1,0 +1,16 @@
+{
+  "name": "js_check-list",
+  "version": "1.0.0",
+  "description": "JS Checklist",
+  "main": "controller.js",
+  "scripts": {
+    "start": "node controller.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nico Groß",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "uuid": "^3.1.0"
+  }
+}
