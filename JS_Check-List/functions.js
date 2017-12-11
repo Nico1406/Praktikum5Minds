@@ -142,7 +142,7 @@ exports.isCheckedJSON = function isChecked(){
 //finfIndex
 function findWithAttr(array, attr, value) {
 
-    for(let i = 0; i < array.length; i ++) {
+    for(let i = 0; i < array.length; i++) {
         if(array[i][attr] === value) {
             return i;
         }
