@@ -17,7 +17,7 @@ exports.createJSON = function createJSON(newNote){
     };
     fileObject.Todo.push(obj);
     fs.writeFileSync(file, JSON.stringify(fileObject, null, 4));
-    return "Successful";
+    return 'Successful';
 };
 
 //read
@@ -29,21 +29,21 @@ exports.readJSON = function readJSON(){
     for(let i = 0;i<fileObject.Todo.length;i++){
         if(output == null){
             if(fileObject.Todo[i].check == true){
-                output = "&#10003 Subject: " + JSON.stringify(fileObject["Todo"][i]["subject"] + " | Id: " + fileObject["Todo"][i]["id"]);
+                output = '&#10003 Subject: ' + JSON.stringify(fileObject['Todo'][i]['subject'] + ' | Id: ' + fileObject['Todo'][i]['id']);
             }else{
-                output = "&#10007 Subject: " + JSON.stringify(fileObject["Todo"][i]["subject"] + " | Id: " + fileObject["Todo"][i]["id"]);
+                output = '&#10007 Subject: ' + JSON.stringify(fileObject['Todo'][i]['subject'] + ' | Id: ' + fileObject['Todo'][i]['id']);
             }
         }else{
             if(fileObject.Todo[i].check == true){
-                output = output + "<br>&#10003 Subject: " + JSON.stringify(fileObject["Todo"][i]["subject"] + " | Id: " + fileObject["Todo"][i]["id"]);
+                output = output + '<br>&#10003 Subject: ' + JSON.stringify(fileObject['Todo'][i]['subject'] + ' | Id: ' + fileObject['Todo'][i]['id']);
             }else{
-                output = output + "<br>&#10007 Subject: " + JSON.stringify(fileObject["Todo"][i]["subject"] + " | Id: " + fileObject["Todo"][i]["id"]);
+                output = output + '<br>&#10007 Subject: ' + JSON.stringify(fileObject['Todo'][i]['subject'] + ' | Id: ' + fileObject['Todo'][i]['id']);
             }
         }
     }
-    output = output.replace(/"/g,'');
+    output = output.replace(/'/g,'');
     if(output == null){
-        return "no notes found"
+        return 'no notes found'
     }
     return output;
 };
@@ -53,13 +53,13 @@ exports.updateJSON = function updateJSON(id, newsubject){
     const fileRe = fs.readFileSync('./list.json', 'utf8');
     let fileObject = JSON.parse(fileRe);
 
-    const index = findWithAttr(fileObject.Todo, "id", id);
+    const index = findWithAttr(fileObject.Todo, 'id', id);
     if(index == -1){
-        return "File not found";
+        return 'File not found';
     }else{
         fileObject.Todo[index].subject = newsubject;
         fs.writeFileSync(file, JSON.stringify(fileObject, null, 4));
-        return "Successful";
+        return 'Successful';
     }
 };
 
@@ -67,13 +67,13 @@ exports.updateJSON = function updateJSON(id, newsubject){
 exports.deleteJSON = function deleteJSON(oldid){
     const fileRe = fs.readFileSync('./list.json', 'utf8');
     let fileObject = JSON.parse(fileRe);
-    const index = findWithAttr(fileObject.Todo, "id", oldid);
+    const index = findWithAttr(fileObject.Todo, 'id', oldid);
     if(index == -1){
-        return "File not found";
+        return 'File not found';
     }else{
         fileObject.Todo.splice(index, 1);
         fs.writeFileSync(file, JSON.stringify(fileObject, null, 4));
-        return "Successful";
+        return 'Successful';
     }
 };
 
@@ -82,15 +82,15 @@ exports.searchJSON = function searchJSON(search) {
     const fileRe = fs.readFileSync('./list.json', 'utf8');
     let fileObject = JSON.parse(fileRe);
     
-    let index = findWithAttr(fileObject.Todo, "id", search);
+    let index = findWithAttr(fileObject.Todo, 'id', search);
     if(index == -1){
-        return "File not found";
+        return 'File not found';
     }else{
         let output;
         if(fileObject.Todo[index].check == true){
-                output = "&#10003 Subject: " + JSON.stringify(fileObject["Todo"][index]["subject"] + " | Id: " + fileObject["Todo"][index]["id"]);
+                output = '&#10003 Subject: ' + JSON.stringify(fileObject['Todo'][index]['subject'] + ' | Id: ' + fileObject['Todo'][index]['id']);
             }else{
-                output = "&#10007 Subject: " + JSON.stringify(fileObject["Todo"][index]["subject"] + " | Id: " + fileObject["Todo"][index]["id"]);
+                output = '&#10007 Subject: ' + JSON.stringify(fileObject['Todo'][index]['subject'] + ' | Id: ' + fileObject['Todo'][index]['id']);
             }
         return output;
     }
@@ -101,9 +101,9 @@ exports.checkJSON = function check(toCheck){
     const fileRe = fs.readFileSync('./list.json', 'utf8');
     let fileObject = JSON.parse(fileRe);
     
-    let index = findWithAttr(fileObject.Todo, "id", toCheck);
+    let index = findWithAttr(fileObject.Todo, 'id', toCheck);
     if(index == -1){
-        return "File not found";
+        return 'File not found';
     }else{
         if(fileObject.Todo[index].check == false){
             fileObject.Todo[index].check = true;
@@ -111,7 +111,7 @@ exports.checkJSON = function check(toCheck){
             fileObject.Todo[index].check = false;
         }
         fs.writeFileSync(file, JSON.stringify(fileObject, null, 4));
-        return "Successful";
+        return 'Successful';
     }
     
 }
@@ -125,16 +125,16 @@ exports.isCheckedJSON = function isChecked(){
     for(let i = 0;i<fileObject.Todo.length;i++){
         if(output == null){
             if(fileObject.Todo[i].check == true){
-                output = "&#10003 Subject: " + JSON.stringify(fileObject["Todo"][i]["subject"] + " | Id: " + fileObject["Todo"][i]["id"]);
+                output = '&#10003 Subject: ' + JSON.stringify(fileObject['Todo'][i]['subject'] + ' | Id: ' + fileObject['Todo'][i]['id']);
             }
         }else{
             if(fileObject.Todo[i].check == true){
-                output = output + "<br>&#10003 Subject: " + JSON.stringify(fileObject["Todo"][i]["subject"] + " | Id: " + fileObject["Todo"][i]["id"]);
+                output = output + '<br>&#10003 Subject: ' + JSON.stringify(fileObject['Todo'][i]['subject'] + ' | Id: ' + fileObject['Todo'][i]['id']);
             }
         }
     }
     if(output == null){
-        return "nothing is checked"
+        return 'nothing is checked'
     }
     return output;    
 }
