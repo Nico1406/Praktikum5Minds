@@ -6,15 +6,9 @@ const fs = require('fs');
 const functions = require('./functions.js');
 const bodyParser = require('body-parser');
 
+const urlencodedParser = bodyParser.urlencoded({extended: false});
+
 app.use(express.static('public'));
-
-var file = "list.json";
-var fileRe = require("./list.json");
-
-//Homepage GET-Method
-/*app.get('/', function(req, res){
-    res.sendFile(__dirname + "/" + "index.htm");
-});*/
 
 //Routes
 app.get('/', function(req, res){
@@ -44,24 +38,6 @@ app.put('/', urlencodedParser, function(req, res){
 app.delete('/:item', function(req, res){
     res.send(functions.deleteJSON(req.params.item));
 });
-
-/*
-
-        //Handlebars
-        fs.readFile('list.htm', 'utf-8', function(error, source){
-        if (error) {
-            console.error(error);
-            return;
-        }
-
-        var template = handlebars.compile(source);
-        var html = template({
-            todos: fileRe.Todo
-        });
-
-        res.send(html);
-    });
-});*/
 
 //Server
 var server = app.listen(8080, function(){
